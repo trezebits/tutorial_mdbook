@@ -38,7 +38,7 @@
             const path_to_root = "../";
             const default_light_theme = "rust";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-bdaaa1d7.js";
+            window.path_to_searchindex_js = "../searchindex-9a04aea8.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-799629c9.js"></script>
@@ -188,8 +188,18 @@ sin sufrir modificaciones.</p>
 <p>Yo utilizo <a href="https://github.com">GitHub</a> como repositorio, y hago uso de un servicio llamado
 <a href="https://pages.github.com">GitHub Pages</a>, que permite visualizar la documentación en forma de sitio web.</p>
 <p>Para subir los documentos utilizo <a href="https://github.com/apps/desktop">GitHub Desktop</a>, un programa que podemos
-descargar e instalar en nuestro ordenador, y cuyo uso requiere que
-previamente tengamos instalado <em>Git</em>, como hemos visto en el capítulo anterior.</p>
+descargar e instalar en nuestro ordenador, que sirve para interaccionar
+con <a href="https://github.com">GitHub</a> y cuyo uso requiere que previamente tengamos instalado <em>Git</em>
+en nuestro ordenador, como hemos visto en el capítulo anterior.</p>
+<blockquote>
+<p><strong>Nota</strong>
+<hr>
+Probablemente, lo más ortodoxo sería añadir al script de creación del libro
+media docena de comandos <code>git</code> que ejecuten la sincronización de ficheros
+entre <a href="https://github.com">GitHub</a> y nuestras carpetas,
+Pero me gusta separar la tarea en dos fases, conversión a HTML y publicación
+del libro. Y por otra parte, me gusta la comodidad de <a href="https://github.com/apps/desktop">GitHub Desktop</a>.</p>
+</blockquote>
 <h2 id="acerca-de-github"><a class="header" href="#acerca-de-github">Acerca de GitHub</a></h2>
 <p><a href="https://github.com">GitHub</a> es una plataforma de desarrollo colaborativo que permite alojar
 proyectos, tanto personales como comunitarios, utilizando el sistema de control
@@ -225,12 +235,11 @@ veremos un menú de opciones. Algunas de ellas son:</p>
 <li>Your repositories - lista de repositorios</li>
 </ul>
 <h2 id="creando-un-repositorio"><a class="header" href="#creando-un-repositorio">Creando un repositorio</a></h2>
-<p>Cada usuario puede tener uno o varios repositorios.
-Vamos a crear uno para cada proyecto de libro. Lo haremos
-desde <a href="https://github.com/apps/desktop">GitHub Desktop</a>, un programa que podemos instalar en nuestro ordenador
-y que sirve para interaccionar con el servidor.</p>
-<p>Pero antes, veamos como se crea un repositorio manualmente desde <a href="https://github.com">GitHub</a>.
-Tras iniciar sesión desplegamos el menú de opciones en la esquina superior
+<p>El primer paso para publicar un libro es crear un repositorio específico para
+ese propósito. Vamos a tener tantos como libros</p>
+<p>La creación de nuevos repositorios se puede hacer desde la página web de
+<a href="https://github.com">GitHub</a>, o desde <a href="https://github.com/apps/desktop">GitHub Desktop</a>. En el primer caso,
+tras iniciar sesión desplegamos el menú de opciones en la esquina superior
 derecha. Pulsamos en el enlace <code>repositories</code>, lo que nos lleva a
 una lista de nuestros repositorios, por ahora, vacía.
 Pulsamos en el botón <kbd>New</kbd>.</p>
@@ -271,46 +280,51 @@ explicativo del repositorio.</p>
 en el mismo proyecto. Es posible mantener varias versiones de un repositorio,
 llamadas “ramas”. Al visualizar la lista de archivos, podemos seleccionar
 la rama (branch) deseada. Por ahora, nos arreglaremos con la rama “main”.</p>
+<h2 id="eliminar-repositorio"><a class="header" href="#eliminar-repositorio">Eliminar repositorio</a></h2>
+<p>En <a href="https://github.com">GitHub</a> no hay papeleras de reciclaje. La eliminación de un repositorio se
+hace entrando a ver el conteido del mismo y pulsando en el icono <em>Settings</em>.
+En la página de configuración, acudir al apartado <em>Danger Zone</em>.</p>
 <h2 id="subida-de-archivos"><a class="header" href="#subida-de-archivos">Subida de archivos</a></h2>
-<p>Una vez que tenemos una cuenta en <a href="https://github.com">GitHub</a>, vamos a proceder a subir nuestros
-libros. Para ejecutar las transferencias de archivos usaremos <a href="https://github.com/apps/desktop">GitHub Desktop</a>
-un programa que permite interaccionar
-con <a href="https://github.com">GitHub</a> desde nuestro ordenador. Lo descargamos e instalamos.
-Al ejecutarse muestra lo siguiente:</p>
+<p>Tras instalar <a href="https://github.com/apps/desktop">GitHub Desktop</a>, lo ejecutamos por primera vez y vemos
+lo siguiente:</p>
 <p><img src="../img/0901GitHubDesktop001.png" alt=""></p>
-<p>Pulsamos sobre el botón <code>sign in</code>. Al conectarnos a <a href="https://github.com">GitHub</a> en el navegador web,
-se nos pedirá que activemos la autorización para que <a href="https://github.com/apps/desktop">GitHub Desktop</a> acceda a
-nuestros repositorios.</p>
-<p>Seguimos con el proceso de configuración e introducimos nuestras credenciales de
+<p>Si no estamos conectados a <a href="https://github.com">GitHub</a> en la ventana del navegador,
+<a href="https://github.com/apps/desktop">GitHub Desktop</a> nos muestra un botón <code>sign in</code> para hacerlo. Al conectarnos
+por primera vez se nos pedirá que activemos la autorización para
+que <a href="https://github.com/apps/desktop">GitHub Desktop</a> acceda a nuestros repositorios.</p>
+<p>Siguiendo con el proceso de configuración, introducimos nuestras credenciales de
 <a href="https://github.com">GitHub</a>:</p>
 <p><img src="../img/0901GitHubDesktop002.png" alt=""></p>
 <p>Una vez configurado, cada vez que iniciemos <a href="https://github.com/apps/desktop">GitHub Desktop</a> tendremos
 un resumen de nuestros repositorios. Pulsamos en <em>Add repository from local drive</em>:</p>
 <p><img src="../img/0901GitHubDesktop003.png" alt=""></p>
-<p>Vemos un resumen del repositorio. En la esquina superior izquierda tenemos una
+<p>En lo sucesivo, podemos hacer todo esto desde el menú <em>File &gt; Add local repository</em></p>
+<p>Tras esto, <a href="https://github.com/apps/desktop">Github Desktop</a> tiene a nuestra carpeta con el libro incluida
+su lista de repositorios locales.
+Vemos un resumen del repositorio y sus archivos. En la parte superior izquierda
+de la ventana tenemos una
 lista desplegable para seleccionar otros repositorios o crear uno nuevo:</p>
 <p><img src="../img/0901GitHubDesktop004.png" alt=""></p>
 <p>Para hacer la primera subida de archivos, tenemos que cumplimentar la casilla
 <em>Summary</em> con alguna frase, “Primera versión”, “actualización”, o lo que sea.
-Pulsamos en <em>Commit</em> y seguidamente en <em>Publish branch</em>.
-Se creará un nuevo repositorio en nuestra cuenta
-de <a href="https://github.com">GitHub</a>. Aparecerá un error si el repositorio ya existe.</p>
+Pulsamos en <em>Commit</em> (tomar nota de los cambios) y seguidamente en <em>Publish</em>
+(publicar).</p>
+<p>Cuando ejecutamos <em>Publish</em> por primera vez para un proyecto, se crea un nuevo
+repositorio en nuestra cuenta de <a href="https://github.com">GitHub</a>.</p>
 <p>En la ventana de diálogo de creación del repositorio se nos pregunta:</p>
 <ul>
-<li>Seleccionamos Github.com o Enterprise. Seleccionamos el primero.</li>
-<li>Introducimos el nombre del repositorio a crear</li>
+<li>Seleccionar Github.com o Enterprise. Escogemos el primero.</li>
+<li>Introducimos el nombre del repositorio a crear. Obtendremos un error
+si ya existe un repositorio con ese nombre.</li>
 <li>Introducimos una descripción</li>
 <li>Desmarcamos la casilla “<em>keep this code private</em>”</li>
 </ul>
-<p>Para futuros proyectos, pode mos añadir nuevos repositorios desde el menú
-<em>File &gt; Add local Repository</em>.</p>
 <h2 id="actualizaciones"><a class="header" href="#actualizaciones">Actualizaciones</a></h2>
 <p>Tras la primera subida de documentos, nuestro proyecto sufrirá modificaciones
 ¡Importante! Nunca debemos modificar los archivos directamente en el repositorio
 remoto. Hacerlo en el entorno local y subir los cambios, para un mejor control.</p>
-<p>Al abrir <a href="https://github.com/apps/desktop">GitHub Desktop</a> y seleccionar un proyecto, veremos un resumen de
-los archivos que hay en nuestro entorno local, indicando los cambios realizados
-y pendientes de subir:</p>
+<p>Cada vez que abrimos <a href="https://github.com/apps/desktop">GitHub Desktop</a> y seleccionar un proyecto, veremos un
+resumen de los archivos que han sufrido modificaciones en nuestro entorno local.</p>
 <p><img src="../img/0901GitHubDesktop005.png" alt=""></p>
 <p>Para actualizar el repositorio remoto, hacer lo siguiente:</p>
 <ul>
@@ -329,7 +343,7 @@ Los archivos modificados en el repositorio remoto se mostrarán con ese texto.</
 </ul>
 <h2 id="configurar-como-github-pages"><a class="header" href="#configurar-como-github-pages">Configurar como GitHub Pages</a></h2>
 <p>Una vez subida la documentación, tenemos que activar el servicio de publicación.
-Accedemos a GitHub con nuestra contraseña de
+En el navegador web, accedemos a GitHub con nuestra contraseña de
 usuario y verificamos el contenido del repositorio. El contenido del archivo
 <code>README.md</code> se visualizará como resumen del proyecto.</p>
 <p>En la parte superior de la página pulsamos en <em>Settings</em>. Se abre la página
