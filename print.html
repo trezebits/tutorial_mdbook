@@ -39,10 +39,10 @@
             const path_to_root = "";
             const default_light_theme = "rust";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-9603d6b6.js";
+            window.path_to_searchindex_js = "searchindex-16e267ca.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-c467004e.js"></script>
+        <script src="toc-07ee66f5.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -202,17 +202,18 @@ de teclas de navegación.</p>
 <hr>
 Este tutorial está basado en mi experiencia con mdBook, y lo comparto
 con quienes, como yo, deseen utilizar este software para
-desarrollar libros en general. No lo he concebido para programadores de Rust,
-quienes pueden profundizar en la
+desarrollar libros web en general.
+No lo he concebido para programadores de Rust,
+quienes pueden profundizar en la materia acudiendo a la
 <a href="https://rust-lang.github.io/mdBook/index.html">guía oficial de mdBook</a>
 donde descubriran funcionalidades específicas para documentar el
-lenguaje de programación Rust, algo en lo que aquí no profundizaremos.</p>
+lenguaje de programación Rust.</p>
 </blockquote>
 <p><br /><br />
 <hr />
 © El taller de Félix<br>
 Cuaderno desarrollado con <a href="https://rust-lang.github.io/mdBook/index.html">mdBook</a><br>
-Fecha de actualización: 11 de abril de 2026 <br></p>
+Fecha de actualización: 12 de abril de 2026 <br></p>
 <p><a href="https://trezebits.github.io"><kbd>Índice de cuadernos</kbd></a></p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="anatomía-de-un-libro-web"><a class="header" href="#anatomía-de-un-libro-web">Anatomía de un libro web</a></h1>
@@ -1066,7 +1067,8 @@ actual, usamos el alias “.”</p>
 <blockquote>
 <p><strong>Nota</strong>:
 <hr>
-Este cuaderno está orientado a usuarios que quieren desarrollar documentación
+Como ya indiqué en la primera página,
+este cuaderno está orientado a usuarios que quieren desarrollar documentación
 en general, no a programadores Rust, para cuya documentación fue concebido
 mdBook originalmente.</p>
 <p>Un programador de Rust haría la instalación descargando
@@ -1312,11 +1314,12 @@ de configuración <code>book.toml</code>:</p>
 <pre><code class="language-toml">[book]
 
 title = "Mi primer libro"
-authors = ["Pedro" , "Ana"]
+authors = ["Pedro"]
 language = "en"
 
 </code></pre>
-<p>Por ahora, lo dejaremos como está. Lo veremos más adelante. Podríamos cambiar:</p>
+<p>Por ahora, lo dejaremos como está. Lo veremos más adelante. Podríamos cambiar
+la línea:</p>
 <pre><code class="language-toml">language = "es"
 </code></pre>
 <h2 id="generar-el-sitio-web"><a class="header" href="#generar-el-sitio-web">Generar el sitio web</a></h2>
@@ -1327,11 +1330,8 @@ $ ../herramientas/mdbook clean --dest-dir book
 $ ../herramientas/mdbook build --dest-dir book
 </code></pre>
 <p>El primer comando nos sitúa en el directorio principal del libro.
-Los otros dos comandos:</p>
-<ul>
-<li>
-<p>acuden al directorio padre, subdirectorio <code>/herramientas</code> y ejecutan
-el programa <code>mdbook</code>  pasándole dos argumentos:</p>
+Los otros dos comandos acuden al directorio padre, subdirectorio <code>/herramientas</code>
+y ejecutan el programa <code>mdbook</code>  pasándole dos argumentos:</p>
 <ul>
 <li>
 <p>la operación a realizar:</p>
@@ -1346,8 +1346,6 @@ versiones del libro generadas anteriormente.</li>
 nombre):</p>
 <pre><code>--dest-dir book
 </code></pre>
-</li>
-</ul>
 </li>
 </ul>
 <h2 id="visualizar-el-libro-generado"><a class="header" href="#visualizar-el-libro-generado">Visualizar el libro generado</a></h2>
@@ -1373,34 +1371,6 @@ capítulo en el archivo <code>SUMMARY.md</code>).</p>
 y configurarlo para que los accesos del público
 visualicen en primer lugar el archivo <code>index.html</code>. Pero eso lo veremos
 al final de este cuaderno.</p>
-<h2 id="un-script-para-generar-el-libro"><a class="header" href="#un-script-para-generar-el-libro">Un script para generar el libro</a></h2>
-<p>Vamos a crear un script que, al pulsar sobre el mismo, automatice la tarea de
-generar el libro. Lo guardaremos en el directorio <code>acciones</code>, con el nombre
-de <code>generar_libro.sh</code>. No olvidar que en Mac/linux hay que darle permisos
-de ejecución con un comando <code>chmod</code> en el Terminal de comandos:</p>
-<pre><code class="language-bash">cd /Users/usuario/Documentos/Proyectos/miProyecto
-../herramientas/mdbook clean --dest-dir book
-../herramientas/mdbook build --dest-dir book
-
-cp .gitignore book/.gitignore
-cd book
-git init
-</code></pre>
-<p>A los comandos ya vistos, añadimos uno para copiar el archivo <code>.gitignore</code>
-al directorio donde se encuentra el material a subir al servidor. También
-ejecutamos:</p>
-<pre><code>cd book
-git init
-</code></pre>
-<p>El comando <code>git init</code> configura el directorio de resultados añadiendo un
-sistema de control de versiones, algo que es requerido por algunos
-servidores web.</p>
-<p>¿No tenemos comando <code>git</code> en nuestra computadora? A veces pasa.  Vamos a
-verificarlo ejecutando en el Terminal de comandos:</p>
-<pre><code>$  git -v
-</code></pre>
-<p>Lo que muestra la versión instalada. Si no lo tenemos, acudir a la página
-web <a href="https://git-scm.com">https://git-scm.com</a> y seguir instrucciones de instalación.</p>
 <div style="break-before: page; page-break-before: always;"></div>
 <h1 id="servidor-de-cambios"><a class="header" href="#servidor-de-cambios">Servidor de cambios</a></h1>
 <p>Introducir contenidos con el editor y tener que esperar al proceso de conversión
@@ -3465,35 +3435,150 @@ en el archivo de configuración <code>book.toml</code> podemos desactivarla:</p>
 smart-punctuation = false
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div>
-<h1 id="subir-archivos-a-internet"><a class="header" href="#subir-archivos-a-internet">Subir archivos a Internet</a></h1>
-<p>Los sitios web creados con <em>mdBook</em> consisten en una colección de archivos en
+<h1 id="preparando-el-libro"><a class="header" href="#preparando-el-libro">Preparando el libro</a></h1>
+<p>En capítulos anteriores vimos como crear un directorio para alojar los archivos
+que forman el libro final, listo para subir a un servidor web. El script
+era algo así como:</p>
+<pre><code>cd /Users/usuario/Documentos/Proyectos/miProyecto
+../herramientas/mdbook clean --dest-dir libro
+../herramientas/mdbook build --dest-dir libro
+</code></pre>
+<p>El primer comando nos sitúa en el directorio principal del libro. Los otros dos
+comandos acuden al directorio padre, subdirectorio <code>/herramientas</code> y ejecutan
+el programa mdbook indicando el directorio de destino, <code>libro</code>.</p>
+<p>La operación <code>clean</code> borra el directorio especificado si ya existiera.
+De esta forma eliminamos versiones del libro generadas anteriormente.</p>
+<p>El resultado final es una carpeta <code>libro</code> con una colección de archivos en
 formato HTML, CSS, imágenes, etcétera. Todo este paquete puede subirse a
 cualquier servidor web configurado para admitir páginas de tipo “estático”,
 es decir, archivos que se descargan y visualizan en nuestro navegador
 sin sufrir modificaciones.</p>
-<h2 id="github"><a class="header" href="#github">GitHub</a></h2>
-<p>Yo utilizo <a href="https://github.com">GitHub</a> como repositorio, y hago uso de un servicio llamado
-<a href="https://pages.github.com">GitHub Pages</a>, que permite visualizar la documentación en forma de sitio web.
-Para subir los documentos utilizo <a href="https://github.com/apps/desktop">GitHub Desktop</a>, un programa que podemos
-descargar e instalar en nuestro ordenador, y cuyo uso requiere que
-previamente tengamos instalado un programa llamado <em>Git</em>.</p>
+<p>Yo utilizo <a href="https://github.com">GitHub</a> como repositorio de libros, y hago uso de un servicio llamado
+<a href="https://pages.github.com">GitHub Pages</a>, que permite visualizar la documentación en forma de sitio web.</p>
 <h2 id="acerca-de-git"><a class="header" href="#acerca-de-git">Acerca de Git</a></h2>
-<p>Git es un programa concebido para el control de versiones de documentos
-subidos a repositorios remotos. Resulta especialmente útil en el caso de
-proyectos en los que participan varias personas, ya que facilita la coordinación
-del trabajo en grupo.</p>
+<p><a href="https://github.com">GitHub</a> es un servicio destinado tanto a proyectos personales como a los
+desarrollados en grupo, y uno de sus componentes más importantes es el control
+de modificación de ficheros y versiones de los contenidos subidos. Para
+gestionar todo esto, necesitamos instalar en nuestro ordenador personal
+un programa llamado <a href="https://git-scm.com">Git</a>.</p>
 <p>Git es un software <em>open source</em>, concebido inicialmente por <em>Linus Torvalds</em>,
-el creador del sistema operativo Linux.</p>
-<p>Vamos a utilizar <em>Git</em> para subir nuestros documentos al repositorio de páginas
-web. Podemos comprobar que nuestro sistema operativo lo trae de serie si abrimos
-un terminal de comandos e introducimos:</p>
+el creador del sistema operativo Linux.
+Podemos comprobar que lo tenemos instalado abriendo
+un terminal de comandos e introduciendo:</p>
 <pre><code>$ git --version
 </code></pre>
 <p>Si necesitamos instalarlo en nuestro equipo, podemos ir al repositorio de
-software de nuestro sistema operativo, o bien descargarlo de la <a href="https://git-scm.com">página web oficial de Git</a>.</p>
-<p>Git es un software para profesionales, complejo y con muchas funcionalidades que
-posiblemente no necesitaremos. En todo caso tenemos un libro sobre la materia,
-de libre acceso y descarga en <a href="https://git-scm.com/book/">esta página</a>.</p>
+software de nuestro sistema operativo, o bien descargarlo de la página web
+oficial de <a href="https://git-scm.com">Git</a></p>
+<p>Git es un software concebido para profesionales, complejo y con muchas
+funcionalidades que
+posiblemente no necesitaremos. En todo caso,
+en <a href="https://git-scm.com/book/es">esta página</a>
+tenemos un libro sobre la materia, de libre acceso y descarga</p>
+<h2 id="archivos-a-evitar"><a class="header" href="#archivos-a-evitar">Archivos a evitar</a></h2>
+<p>Una de las piezas de <a href="https://git-scm.com">Git</a> es el control de archivos que no queremos subir
+al servidor.
+Por ejemplo, yo utiliza un Mac para desarrollar mi documentación, y este
+sistema operativo crea automáticamente en todas las carpetas un archivo oculto
+llamado <code>.DS_Store</code> (Desktop Services Store) con las preferencias de
+visualización de la carpeta, posición de los iconos, tamaño de la ventana, etc.
+Es equivalente al fichero <code>thumbs.db</code> de Windows, está presente en muchas de
+nuestras carpetas, y no es algo que queramos subir al servidor web.</p>
+<p>Para evitarlo, creamos un archivo “<em>plain text</em>” llamado <code>evitar</code>, con el
+siguiente texto (para un Mac):</p>
+<pre><code>_DS_Store
+otro_archivo1
+otro_archivo2
+</code></pre>
+<p>… etcétera. En el script de compilación, añadimos un comando <code>cp</code> (copy):</p>
+<pre><code>cd /Users/usuario/Documentos/Proyectos/miProyecto
+../herramientas/mdbook clean --dest-dir libro
+../herramientas/mdbook build --dest-dir libro
+cp evitar libro/.gitignore
+</code></pre>
+<p>lo que significa “<em>copiar el archivo <code>evitar</code> a la carpeta <code>libro</code> y darle
+el nombre <code>.gitignore</code></em>”. Recordemos que, en Mac/Linux, los archivos con un punto
+de prefijo son archivos ocultos.</p>
+<h2 id="control-de-versiones"><a class="header" href="#control-de-versiones">Control de versiones</a></h2>
+<p>Una vez creado el contenido final a subir, tenemos que añadir el control de
+versiones Git. Abrimos un Terminal de comandos y ejecutamos:</p>
+<pre><code>cd /Users/usuario/Documentos/Proyectos/miProyecto
+cd libro
+git init
+</code></pre>
+<p>… es decir, nos situamos en la carpeta principal del proyecto,
+saltamos a la carpeta
+generada que tiene el contenido del libro, y creamos un control de versiones con
+el comando <code>git init</code>. Esto crea una subcarpeta oculta <code>.git</code></p>
+<blockquote>
+<p>¿Como visualizar archivos ocultos? 
+<hr>
+Todos los sistemas operativos suelen tener un explorador de ficheros con una
+opción de menú <em>Ver &gt; Elementos ocultos</em>. Cada sistema es un mundo. En un
+Mac, por ejemplo, se activa pulsando la combinación de teclas
+<kbd>command ⌘</kbd> +
+<kbd>mayúsculas ⇧</kbd> +
+<kbd>.</kbd></p>
+</blockquote>
+<p>El comando <code>git</code> solo es necesario la primera vez que creamos el libro. Pero
+mdBook tiene un “gazapo”. Cada vez que ejecutamos <code>mdbook clean</code>, se borra
+todo el contenido de la carpeta de resultados, incluyendo esa subcarpeta
+oculta <code>.git</code>. Para solucionarlo, vamos a moverla a un lugar seguro en el
+script de creación del contenido final. Añadimos al script el siguiente
+comando:</p>
+<pre><code>mv libro/.git .
+</code></pre>
+<p>Movemos la carpeta <code>libro/.git</code> al directorio actual (en el que
+nos hemos situado al principio del script) representado por un punto <code>.</code>
+Con esto tenemos:</p>
+<pre><code class="language-bash">cd /Users/usuario/Documentos/Proyectos/miProyecto
+
+mv libro/.git .
+
+../__mdbook_tools/mdbook clean --dest-dir libro
+../__mdbook_tools/mdbook build --dest-dir libro
+
+cp gitignore libro/.gitignore
+mv .git libro
+</code></pre>
+<p>Terminamos con un comando que recupere el control de versiones moviendo
+de nuevo la subcarpeta <code>.git</code> a la carpeta <code>libro</code>.</p>
+<h2 id="el-archivo-readme"><a class="header" href="#el-archivo-readme">El archivo README</a></h2>
+<p>Los proyectos alojados en <a href="https://github.com">GitHub</a> suelen incluir un archivo markdown
+<code>README.md</code> que se utiliza como presentación para quienes
+visiten las páginas de <a href="https://github.com">GitHub</a> con el propósito de examinar el contenido
+“en bruto”. Podemos crear este archivo en la carpeta principal de nuestro
+proyecto:</p>
+<pre><code># Mi maravilloso libro
+
+Una descripción a manera de presentación
+</code></pre>
+<p>Y lo incluimos entre los contenidos a subir al servidor. El script queda así:</p>
+<pre><code class="language-bash">cd /Users/usuario/Documentos/Proyectos/miProyecto
+
+mv libro/.git .
+
+../__mdbook_tools/mdbook clean --dest-dir libro
+../__mdbook_tools/mdbook build --dest-dir libro
+
+cp README.md libro/README.md
+cp gitignore libro/.gitignore
+mv .git libro
+</code></pre>
+<p><strong>¡Importante!</strong>. No debemos poner el archivo <code>README.md</code> en la carpeta <code>src</code>,
+ya que sería considerado como una página más del libro. De hecho, mdBook
+la consideraría como página principal, y le daría el nombre <code>index.html</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="subir-archivos-a-internet"><a class="header" href="#subir-archivos-a-internet">Subir archivos a Internet</a></h1>
+<p>Ahora que tenemos una carpeta con todos los contenidos a subir a Internet,
+llega el paso final, utilizar algún web que admita páginas de tipo “estático”,
+es decir, archivos que se descargan y visualizan en nuestro navegador
+sin sufrir modificaciones.</p>
+<p>Yo utilizo <a href="https://github.com">GitHub</a> como repositorio, y hago uso de un servicio llamado
+<a href="https://pages.github.com">GitHub Pages</a>, que permite visualizar la documentación en forma de sitio web.</p>
+<p>Para subir los documentos utilizo <a href="https://github.com/apps/desktop">GitHub Desktop</a>, un programa que podemos
+descargar e instalar en nuestro ordenador, y cuyo uso requiere que
+previamente tengamos instalado <em>Git</em>, como hemos visto en el capítulo anterior.</p>
 <h2 id="acerca-de-github"><a class="header" href="#acerca-de-github">Acerca de GitHub</a></h2>
 <p><a href="https://github.com">GitHub</a> es una plataforma de desarrollo colaborativo que permite alojar
 proyectos, tanto personales como comunitarios, utilizando el sistema de control
@@ -3529,10 +3614,14 @@ veremos un menú de opciones. Algunas de ellas son:</p>
 <li>Your repositories - lista de repositorios</li>
 </ul>
 <h2 id="creando-un-repositorio"><a class="header" href="#creando-un-repositorio">Creando un repositorio</a></h2>
-<p>Vamos a crear un repositorio para cada proyecto de libro desde GitHub Desktop.
-Pero veamos como se crea manualmente desde GitHub. Tras iniciar sesión
-desplegamos el menú de opciones y  pulsamos en el enlace <code>Your repositories</code>,
-aparecerá una lista de nuestros repositorios, por ahora, vacía.
+<p>Cada usuario puede tener uno o varios repositorios.
+Vamos a crear uno para cada proyecto de libro. Lo haremos
+desde <a href="https://github.com/apps/desktop">GitHub Desktop</a>, un programa que podemos instalar en nuestro ordenador
+y que sirve para interaccionar con el servidor.</p>
+<p>Pero antes, veamos como se crea un repositorio manualmente desde <a href="https://github.com">GitHub</a>.
+Tras iniciar sesión desplegamos el menú de opciones en la esquina superior
+derecha. Pulsamos en el enlace <code>repositories</code>, lo que nos lleva a
+una lista de nuestros repositorios, por ahora, vacía.
 Pulsamos en el botón <kbd>New</kbd>.</p>
 <p>Se muestra un formulario para introducir los parámetros del nuevo repositorio:</p>
 <ul>
@@ -3540,19 +3629,17 @@ Pulsamos en el botón <kbd>New</kbd>.</p>
 <p>Nombre del repositorio</p>
 </li>
 <li>
-<p>Si es público o privado</p>
+<p>Si es público o privado. Los repositorios privados no tienen mucho
+sentido si lo que queremos es publicar un libro.</p>
 </li>
 <li>
 <p>Si queremos iniciarlo vacío o con tres posibles archivos:</p>
 <ul>
-<li>README.md - Un resumen explicativo de lo que contiene el repositorio.
-Es un archivo de texto <em>markdown</em>.</li>
-<li><code>.gitignore</code> - Se usará al transferir los archivos desde nuestro
-ordenador. Contiene una lista de ficheros o carpetas que no deseamos
-incluir en la transferencia</li>
+<li>README.md</li>
+<li>.gitignore</li>
 <li>Licencia - Tipo de licencia aplicable a nuestros contenidos. Ver <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">licencias</a></li>
 </ul>
-<p>Dejamos estos tres archivos sin crear, porque los podemos subir con
+<p>Podemos dejar estos tres archivos sin crear, porque los podemos subir con
 la documentación.</p>
 </li>
 </ul>
@@ -3574,13 +3661,10 @@ en el mismo proyecto. Es posible mantener varias versiones de un repositorio,
 llamadas “ramas”. Al visualizar la lista de archivos, podemos seleccionar
 la rama (branch) deseada. Por ahora, nos arreglaremos con la rama “main”.</p>
 <h2 id="subida-de-archivos"><a class="header" href="#subida-de-archivos">Subida de archivos</a></h2>
-<p>Una vez que tenemos una cuenta en <a href="https://github.com">GitHub</a> y hemos creado un repositorio para
-nuestro proyecto, vamos a volver al entorno local de nuestro ordenador y
-preparar la subida de archivos.</p>
-<p>Tras redactar nuestros documentos, tenemos que generar el libro en formato web.
-Ya hemos visto como hacerlo. Seguidamente vamos a llevar a cabo la subida de
-documentos. Usaremos <a href="https://github.com/apps/desktop">GitHub Desktop</a> un programa que permite interaccionar
-con el repositorio remoto desde nuestro ordenador. Lo descargamos e instalamos.
+<p>Una vez que tenemos una cuenta en <a href="https://github.com">GitHub</a>, vamos a proceder a subir nuestros
+libros. Para ejecutar las transferencias de archivos usaremos <a href="https://github.com/apps/desktop">GitHub Desktop</a>
+un programa que permite interaccionar
+con <a href="https://github.com">GitHub</a> desde nuestro ordenador. Lo descargamos e instalamos.
 Al ejecutarse muestra lo siguiente:</p>
 <p><img src="img/0901GitHubDesktop001.png" alt=""></p>
 <p>Pulsamos sobre el botón <code>sign in</code>. Al conectarnos a <a href="https://github.com">GitHub</a> en el navegador web,
@@ -3595,34 +3679,20 @@ un resumen de nuestros repositorios. Pulsamos en <em>Add repository from local d
 <p>Vemos un resumen del repositorio. En la esquina superior izquierda tenemos una
 lista desplegable para seleccionar otros repositorios o crear uno nuevo:</p>
 <p><img src="img/0901GitHubDesktop004.png" alt=""></p>
-<p>Hacemos la primera subida de archivos pulsando en <em>Publish branch</em>.</p>
-<p>Para crear nuevos proyectos, hacemos lo siguiente</p>
+<p>Para hacer la primera subida de archivos, tenemos que cumplimentar la casilla
+<em>Summary</em> con alguna frase, “Primera versión”, “actualización”, o lo que sea.
+Pulsamos en <em>Commit</em> y seguidamente en <em>Publish branch</em>.
+Se creará un nuevo repositorio en nuestra cuenta
+de <a href="https://github.com">GitHub</a>. Aparecerá un error si el repositorio ya existe.</p>
+<p>En la ventana de diálogo de creación del repositorio se nos pregunta:</p>
 <ul>
-<li>
-<p>Nos conectamos a GitHub</p>
-</li>
-<li>
-<p>Abrimos GitHub Pages</p>
-</li>
-<li>
-<p>Pulsar en el menú <em>File &gt; Add local Repository</em></p>
-</li>
-<li>
-<p>Completar el campo Summary</p>
-</li>
-<li>
-<p>Pulsamos en el botón <em>Publish Repository</em>:</p>
-<ul>
-<li>Seleccionamos Github.com (descartamos Enterprise)</li>
+<li>Seleccionamos Github.com o Enterprise. Seleccionamos el primero.</li>
 <li>Introducimos el nombre del repositorio a crear</li>
 <li>Introducimos una descripción</li>
 <li>Desmarcamos la casilla “<em>keep this code private</em>”</li>
 </ul>
-</li>
-<li>
-<p>Pulsamos en Fetch origin</p>
-</li>
-</ul>
+<p>Para futuros proyectos, pode mos añadir nuevos repositorios desde el menú
+<em>File &gt; Add local Repository</em>.</p>
 <h2 id="actualizaciones"><a class="header" href="#actualizaciones">Actualizaciones</a></h2>
 <p>Tras la primera subida de documentos, nuestro proyecto sufrirá modificaciones
 ¡Importante! Nunca debemos modificar los archivos directamente en el repositorio
@@ -3634,30 +3704,26 @@ y pendientes de subir:</p>
 <p>Para actualizar el repositorio remoto, hacer lo siguiente:</p>
 <ul>
 <li>
-<p>pulsar en el botón <code>Fetch origin</code> para actualizar la sincronización
+<p>pulsar en el botón <em>Fetch origin</em> para actualizar la sincronización
 de cambios</p>
 </li>
 <li>
-<p>bajar la lista de archivos, rellenar la casilla “Summary” con el texto de
+<p>si se detectan cambios, rellenar la casilla “Summary” con el texto de
 la operación a realizar. Por ejemplo, “actualización”.
 Los archivos modificados en el repositorio remoto se mostrarán con ese texto.</p>
 </li>
 <li>
-<p>pulsar en el botón <code>commit</code></p>
-</li>
-<li>
-<p>pulsar en el botón <code>Push origin</code></p>
+<p>pulsar en el botón <em>Commit</em> y seguidamente en *<em>Push origin</em></p>
 </li>
 </ul>
 <h2 id="configurar-como-github-pages"><a class="header" href="#configurar-como-github-pages">Configurar como GitHub Pages</a></h2>
-<p>Una vez subida la documentación, accedemos a GitHub con nuestra contraseña de
+<p>Una vez subida la documentación, tenemos que activar el servicio de publicación.
+Accedemos a GitHub con nuestra contraseña de
 usuario y verificamos el contenido del repositorio. El contenido del archivo
 <code>README.md</code> se visualizará como resumen del proyecto.</p>
-<p>El siguiente paso es activar <em>GitHub Pages</em>  para que los documentos sean
-visibles como páginas web. Hacemos lo siguiente:</p>
+<p>En la parte superior de la página pulsamos en <em>Settings</em>. Se abre la página
+de configuración:</p>
 <ul>
-<li>Entrar en el repositorio. Veremos la lista de archivos subidos</li>
-<li>Pulsar en <em>Settings</em></li>
 <li>En la barra lateral, pulsar en <em>Pages</em>.</li>
 <li>En el apartado <code>Source</code> seleccionar la única versión (branch)
 que tenemos: <code>main</code></li>

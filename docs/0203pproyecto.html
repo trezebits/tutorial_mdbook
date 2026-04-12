@@ -38,10 +38,10 @@
             const path_to_root = "../";
             const default_light_theme = "rust";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-9603d6b6.js";
+            window.path_to_searchindex_js = "../searchindex-16e267ca.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="../toc-c467004e.js"></script>
+        <script src="../toc-07ee66f5.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -309,11 +309,12 @@ de configuración <code>book.toml</code>:</p>
 <pre><code class="language-toml">[book]
 
 title = "Mi primer libro"
-authors = ["Pedro" , "Ana"]
+authors = ["Pedro"]
 language = "en"
 
 </code></pre>
-<p>Por ahora, lo dejaremos como está. Lo veremos más adelante. Podríamos cambiar:</p>
+<p>Por ahora, lo dejaremos como está. Lo veremos más adelante. Podríamos cambiar
+la línea:</p>
 <pre><code class="language-toml">language = "es"
 </code></pre>
 <h2 id="generar-el-sitio-web"><a class="header" href="#generar-el-sitio-web">Generar el sitio web</a></h2>
@@ -324,11 +325,8 @@ $ ../herramientas/mdbook clean --dest-dir book
 $ ../herramientas/mdbook build --dest-dir book
 </code></pre>
 <p>El primer comando nos sitúa en el directorio principal del libro.
-Los otros dos comandos:</p>
-<ul>
-<li>
-<p>acuden al directorio padre, subdirectorio <code>/herramientas</code> y ejecutan
-el programa <code>mdbook</code>  pasándole dos argumentos:</p>
+Los otros dos comandos acuden al directorio padre, subdirectorio <code>/herramientas</code>
+y ejecutan el programa <code>mdbook</code>  pasándole dos argumentos:</p>
 <ul>
 <li>
 <p>la operación a realizar:</p>
@@ -343,8 +341,6 @@ versiones del libro generadas anteriormente.</li>
 nombre):</p>
 <pre><code>--dest-dir book
 </code></pre>
-</li>
-</ul>
 </li>
 </ul>
 <h2 id="visualizar-el-libro-generado"><a class="header" href="#visualizar-el-libro-generado">Visualizar el libro generado</a></h2>
@@ -370,34 +366,6 @@ capítulo en el archivo <code>SUMMARY.md</code>).</p>
 y configurarlo para que los accesos del público
 visualicen en primer lugar el archivo <code>index.html</code>. Pero eso lo veremos
 al final de este cuaderno.</p>
-<h2 id="un-script-para-generar-el-libro"><a class="header" href="#un-script-para-generar-el-libro">Un script para generar el libro</a></h2>
-<p>Vamos a crear un script que, al pulsar sobre el mismo, automatice la tarea de
-generar el libro. Lo guardaremos en el directorio <code>acciones</code>, con el nombre
-de <code>generar_libro.sh</code>. No olvidar que en Mac/linux hay que darle permisos
-de ejecución con un comando <code>chmod</code> en el Terminal de comandos:</p>
-<pre><code class="language-bash">cd /Users/usuario/Documentos/Proyectos/miProyecto
-../herramientas/mdbook clean --dest-dir book
-../herramientas/mdbook build --dest-dir book
-
-cp .gitignore book/.gitignore
-cd book
-git init
-</code></pre>
-<p>A los comandos ya vistos, añadimos uno para copiar el archivo <code>.gitignore</code>
-al directorio donde se encuentra el material a subir al servidor. También
-ejecutamos:</p>
-<pre><code>cd book
-git init
-</code></pre>
-<p>El comando <code>git init</code> configura el directorio de resultados añadiendo un
-sistema de control de versiones, algo que es requerido por algunos
-servidores web.</p>
-<p>¿No tenemos comando <code>git</code> en nuestra computadora? A veces pasa.  Vamos a
-verificarlo ejecutando en el Terminal de comandos:</p>
-<pre><code>$  git -v
-</code></pre>
-<p>Lo que muestra la versión instalada. Si no lo tenemos, acudir a la página
-web <a href="https://git-scm.com">https://git-scm.com</a> y seguir instrucciones de instalación.</p>
 
                     </main>
 

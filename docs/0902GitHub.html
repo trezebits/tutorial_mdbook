@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Página 404 - Tutorial de mdBook</title>
+        <title>Subir a Internet - Tutorial de mdBook</title>
 
 
         <!-- Custom HTML head -->
@@ -177,46 +177,224 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="página-404"><a class="header" href="#página-404">Página 404</a></h1>
-<p>Los errores suceden. Y hay veces en las que,  al pulsar sobre un enlace,
-no se encuentra la página enlazada. Quizás haya un usuario intentando leer
-el libro mientras estamos en mitad de la tarea de actualización del
-sitio web.</p>
-<p>En estos casos se suele mostrar una página de error:</p>
+                        <h1 id="subir-archivos-a-internet"><a class="header" href="#subir-archivos-a-internet">Subir archivos a Internet</a></h1>
+<p>Ahora que tenemos una carpeta con todos los contenidos a subir a Internet,
+llega el paso final, utilizar algún web que admita páginas de tipo “estático”,
+es decir, archivos que se descargan y visualizan en nuestro navegador
+sin sufrir modificaciones.</p>
+<p>Yo utilizo <a href="https://github.com">GitHub</a> como repositorio, y hago uso de un servicio llamado
+<a href="https://pages.github.com">GitHub Pages</a>, que permite visualizar la documentación en forma de sitio web.</p>
+<p>Para subir los documentos utilizo <a href="https://github.com/apps/desktop">GitHub Desktop</a>, un programa que podemos
+descargar e instalar en nuestro ordenador, y cuyo uso requiere que
+previamente tengamos instalado <em>Git</em>, como hemos visto en el capítulo anterior.</p>
+<h2 id="acerca-de-github"><a class="header" href="#acerca-de-github">Acerca de GitHub</a></h2>
+<p><a href="https://github.com">GitHub</a> es una plataforma de desarrollo colaborativo que permite alojar
+proyectos, tanto personales como comunitarios, utilizando el sistema de control
+de versiones Git. Cada usuario puede tener uno o varios repositorios, de forma
+que cada uno de ellos sirve para alojar un proyecto.</p>
+<p>Desde junio de 2018, GitHub es propiedad de Microsoft. Aunque esto produjo
+ciertos recelos iniciales, GitHub continúa siendo una plataforma importante para
+proyectos de código abierto.</p>
+<p>Para registrarnos como usuarios necesitamos una cuenta de correo.
+Acudimos a la página principal de <em>GitHub</em>, <a href="https://github.com">https://github.com</a>,
+donde veremos dos enlaces:</p>
+<ul>
+<li><code>Sign In</code>, para acceder si ya tenemos un código de usuario y contraseña</li>
+<li><code>Sign Up</code>, para crear una nueva cuenta de usuario.</li>
+</ul>
+<p>Pulsamos en <code>Sign_Up</code> y seguimos el proceso para crear una cuenta.
+Se nos pedirá que establezcamos un nuevo nombre de usuario, una contraseña,
+y se nos pedirá nuestro correo.</p>
+<p>Para aprender a manejarnos con <code>GitHub</code> encontraremos los tutoriales
+en <a href="https://docs.github.com/">https://docs.github.com/</a></p>
+<h2 id="iniciar-sesión-en-github"><a class="header" href="#iniciar-sesión-en-github">Iniciar sesión en GitHub</a></h2>
+<p>En la página principal de <em>GitHub</em>, <a href="https://github.com">https://github.com</a>, pulsamos en el enlace
+<code>Sign In</code>. Se nos pedirá nuestro nombre de usuario o correo electrónico y
+la contraseña.</p>
+<p>Tras iniciar la sesión, vemos que en todo momento tenemos un icono en la esquina
+superior derecha con nuestra imagen de usuario. Pulsando sobre ese icono,
+veremos un menú de opciones. Algunas de ellas son:</p>
+<ul>
+<li>Sign out - cierra la sesión y sale de GitHub</li>
+<li>GitHub docs - documentación de <em>GHitHub</em></li>
+<li>Settings - configuración de nuestra cuenta</li>
+<li>Your profile - muestra un resumen de nuestra cuenta y repositorios</li>
+<li>Your repositories - lista de repositorios</li>
+</ul>
+<h2 id="creando-un-repositorio"><a class="header" href="#creando-un-repositorio">Creando un repositorio</a></h2>
+<p>Cada usuario puede tener uno o varios repositorios.
+Vamos a crear uno para cada proyecto de libro. Lo haremos
+desde <a href="https://github.com/apps/desktop">GitHub Desktop</a>, un programa que podemos instalar en nuestro ordenador
+y que sirve para interaccionar con el servidor.</p>
+<p>Pero antes, veamos como se crea un repositorio manualmente desde <a href="https://github.com">GitHub</a>.
+Tras iniciar sesión desplegamos el menú de opciones en la esquina superior
+derecha. Pulsamos en el enlace <code>repositories</code>, lo que nos lleva a
+una lista de nuestros repositorios, por ahora, vacía.
+Pulsamos en el botón <kbd>New</kbd>.</p>
+<p>Se muestra un formulario para introducir los parámetros del nuevo repositorio:</p>
+<ul>
+<li>
+<p>Nombre del repositorio</p>
+</li>
+<li>
+<p>Si es público o privado. Los repositorios privados no tienen mucho
+sentido si lo que queremos es publicar un libro.</p>
+</li>
+<li>
+<p>Si queremos iniciarlo vacío o con tres posibles archivos:</p>
+<ul>
+<li>README.md</li>
+<li>.gitignore</li>
+<li>Licencia - Tipo de licencia aplicable a nuestros contenidos. Ver <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">licencias</a></li>
+</ul>
+<p>Podemos dejar estos tres archivos sin crear, porque los podemos subir con
+la documentación.</p>
+</li>
+</ul>
+<p>Una vez dentro del repositorio, en la barra superior tendremos una serie de
+etiquetas. Las que más vamos a utilizar son:</p>
+<ul>
+<li>
+<p><em>Code</em> muestra la lista de archivos en el repositorio. Si tenemos un archivo
+<code>README.md</code> se muestra su contenido debajo de la lista, como resumen
+explicativo del repositorio.</p>
+</li>
+<li>
+<p><em>Settings</em> permite configurar el repositorio (¡incluida su eliminación!).</p>
+</li>
+</ul>
+<h2 id="ramas"><a class="header" href="#ramas">Ramas</a></h2>
+<p><a href="https://github.com">GitHub</a>  es un portal colaborativo donde un equipo de personas pueden trabajar
+en el mismo proyecto. Es posible mantener varias versiones de un repositorio,
+llamadas “ramas”. Al visualizar la lista de archivos, podemos seleccionar
+la rama (branch) deseada. Por ahora, nos arreglaremos con la rama “main”.</p>
+<h2 id="subida-de-archivos"><a class="header" href="#subida-de-archivos">Subida de archivos</a></h2>
+<p>Una vez que tenemos una cuenta en <a href="https://github.com">GitHub</a>, vamos a proceder a subir nuestros
+libros. Para ejecutar las transferencias de archivos usaremos <a href="https://github.com/apps/desktop">GitHub Desktop</a>
+un programa que permite interaccionar
+con <a href="https://github.com">GitHub</a> desde nuestro ordenador. Lo descargamos e instalamos.
+Al ejecutarse muestra lo siguiente:</p>
+<p><img src="../img/0901GitHubDesktop001.png" alt=""></p>
+<p>Pulsamos sobre el botón <code>sign in</code>. Al conectarnos a <a href="https://github.com">GitHub</a> en el navegador web,
+se nos pedirá que activemos la autorización para que <a href="https://github.com/apps/desktop">GitHub Desktop</a> acceda a
+nuestros repositorios.</p>
+<p>Seguimos con el proceso de configuración e introducimos nuestras credenciales de
+<a href="https://github.com">GitHub</a>:</p>
+<p><img src="../img/0901GitHubDesktop002.png" alt=""></p>
+<p>Una vez configurado, cada vez que iniciemos <a href="https://github.com/apps/desktop">GitHub Desktop</a> tendremos
+un resumen de nuestros repositorios. Pulsamos en <em>Add repository from local drive</em>:</p>
+<p><img src="../img/0901GitHubDesktop003.png" alt=""></p>
+<p>Vemos un resumen del repositorio. En la esquina superior izquierda tenemos una
+lista desplegable para seleccionar otros repositorios o crear uno nuevo:</p>
+<p><img src="../img/0901GitHubDesktop004.png" alt=""></p>
+<p>Para hacer la primera subida de archivos, tenemos que cumplimentar la casilla
+<em>Summary</em> con alguna frase, “Primera versión”, “actualización”, o lo que sea.
+Pulsamos en <em>Commit</em> y seguidamente en <em>Publish branch</em>.
+Se creará un nuevo repositorio en nuestra cuenta
+de <a href="https://github.com">GitHub</a>. Aparecerá un error si el repositorio ya existe.</p>
+<p>En la ventana de diálogo de creación del repositorio se nos pregunta:</p>
+<ul>
+<li>Seleccionamos Github.com o Enterprise. Seleccionamos el primero.</li>
+<li>Introducimos el nombre del repositorio a crear</li>
+<li>Introducimos una descripción</li>
+<li>Desmarcamos la casilla “<em>keep this code private</em>”</li>
+</ul>
+<p>Para futuros proyectos, pode mos añadir nuevos repositorios desde el menú
+<em>File &gt; Add local Repository</em>.</p>
+<h2 id="actualizaciones"><a class="header" href="#actualizaciones">Actualizaciones</a></h2>
+<p>Tras la primera subida de documentos, nuestro proyecto sufrirá modificaciones
+¡Importante! Nunca debemos modificar los archivos directamente en el repositorio
+remoto. Hacerlo en el entorno local y subir los cambios, para un mejor control.</p>
+<p>Al abrir <a href="https://github.com/apps/desktop">GitHub Desktop</a> y seleccionar un proyecto, veremos un resumen de
+los archivos que hay en nuestro entorno local, indicando los cambios realizados
+y pendientes de subir:</p>
+<p><img src="../img/0901GitHubDesktop005.png" alt=""></p>
+<p>Para actualizar el repositorio remoto, hacer lo siguiente:</p>
+<ul>
+<li>
+<p>pulsar en el botón <em>Fetch origin</em> para actualizar la sincronización
+de cambios</p>
+</li>
+<li>
+<p>si se detectan cambios, rellenar la casilla “Summary” con el texto de
+la operación a realizar. Por ejemplo, “actualización”.
+Los archivos modificados en el repositorio remoto se mostrarán con ese texto.</p>
+</li>
+<li>
+<p>pulsar en el botón <em>Commit</em> y seguidamente en *<em>Push origin</em></p>
+</li>
+</ul>
+<h2 id="configurar-como-github-pages"><a class="header" href="#configurar-como-github-pages">Configurar como GitHub Pages</a></h2>
+<p>Una vez subida la documentación, tenemos que activar el servicio de publicación.
+Accedemos a GitHub con nuestra contraseña de
+usuario y verificamos el contenido del repositorio. El contenido del archivo
+<code>README.md</code> se visualizará como resumen del proyecto.</p>
+<p>En la parte superior de la página pulsamos en <em>Settings</em>. Se abre la página
+de configuración:</p>
+<ul>
+<li>En la barra lateral, pulsar en <em>Pages</em>.</li>
+<li>En el apartado <code>Source</code> seleccionar la única versión (branch)
+que tenemos: <code>main</code></li>
+<li>Pulsar en <code>Save</code></li>
+</ul>
+<p>Aparecerá el mensaje:</p>
 <blockquote>
-<p><strong>Document not found (404)</strong></p>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+<p>“Your site is ready to be published at “https://usuario.github.io/repositorio/”.</p>
 </blockquote>
-<p>Acudamos al directorio donde hemos dejado el resultado del proceso de generación
-del libro. Hay una página <code>404.html</code> estándar que es la que se muestra en estas
-situaciones.</p>
-<p>Podemos crear una página personalizada, algo así como:</p>
+<p>Pasado un breve lapso de tiempo, si refrescamos la página, veremos el mensaje:</p>
 <blockquote>
-<p><strong>Tenemos un problema …..</strong></p>
-<p>Página no encontrada</p>
+<p>“Your site is live at “https://usuario.github.io/repositorio/”</p>
 </blockquote>
-<p>Creamos un archivo markdown con esta página, por ejemplo, <code>src/problemas.md</code>.
-En el fichero de configuración la señalamos como página de errores:</p>
-<pre><code class="language-toml">[output.html]
-input-404 = "problemas.md"
+<p>Gracias a los servicios de <em>GitHub Pages</em>, nuestra documentación será accesible
+mediante la URL:</p>
+<pre><code>https://usuario.github.io/nombreproyecto/
 </code></pre>
-<p>… considerando que el fichero está en la carpeta <code>/src</code>. En caso contrario,
-debe escribirse precedido por la ruta:</p>
-<pre><code class="language-toml">[output.html]
-input-404 = "docs/problemas.md"
+<p>sustituyendo “<em>usuario</em>” por nuestro nombre de usuario y “<em>nomproyecto</em>” por el
+nombre del repositorio.</p>
+<h2 id="crear-una-página-principal-con-la-lista-de-libros-publicados"><a class="header" href="#crear-una-página-principal-con-la-lista-de-libros-publicados">Crear una página principal con la lista de libros publicados</a></h2>
+<p>Todos nuestros proyectos se visualizan mediante la URL:</p>
+<pre><code>https://usuario.github.io/nombrerepositorio/
+</code></pre>
+<p>Podemos crear una página principal accesible bajo el nombre:</p>
+<pre><code>https://usuario.github.io/
+</code></pre>
+<p>Para ello, debemos alojarla en un repositorio llamado <code>usuario.github.io</code>,
+incluyendo los puntos en el nombre y cambiando <em>usuario</em> por nuestro nombre.</p>
+<p>Por ejemplo, en mi caso:</p>
+<ul>
+<li>
+<p>Página de proyecto:</p>
+<ul>
+<li>URL: <a href="https://trezebits.github.io/tutorial_mdBook/">https://trezebits.github.io/tutorial_mdBook/</a></li>
+<li>Repositorio: <a href="https://github.com/trezebits/tutorial_mdBook/">https://github.com/trezebits/tutorial_mdBook/</a></li>
+</ul>
+</li>
+<li>
+<p>Página principal, con índice de cuadernos:</p>
+<ul>
+<li>URL: <a href="https://trezebits.github.io/">https://trezebits.github.io/</a></li>
+<li>Repositorio: <a href="https://github.com/trezebits/trezebits.github.io/">https://github.com/trezebits/trezebits.github.io/</a></li>
+</ul>
+</li>
+</ul>
+<p>En el texto de la página principal <code>https://usuario.github.io/</code> podemos poner
+enlaces a cada libro:</p>
+<pre><code class="language-md"># Mi portal de documentación
+
+Indice de proyectos:
+
+-   [Tutorial mdBook](&lt;https://usuario.github.io/tutorial_mdBook/&gt;)
+-   [Otro libro](&lt;https://usuario.github.io/otro_libro/&gt;)
 </code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../docs/0304sumario.html" class="mobile-nav-chapters previous" title="Capítulo anterior" aria-label="Capítulo anterior" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../docs/0901script.html" class="mobile-nav-chapters previous" title="Capítulo anterior" aria-label="Capítulo anterior" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="../docs/0306impresion.html" class="mobile-nav-chapters next" title="Capítulo siguiente" aria-label="Capítulo siguiente" aria-keyshortcuts="Right">
-                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
-                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -224,13 +402,10 @@ input-404 = "docs/problemas.md"
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../docs/0304sumario.html" class="nav-chapters previous" title="Capítulo anterior" aria-label="Capítulo anterior" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../docs/0901script.html" class="nav-chapters previous" title="Capítulo anterior" aria-label="Capítulo anterior" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="../docs/0306impresion.html" class="nav-chapters next" title="Capítulo siguiente" aria-label="Capítulo siguiente" aria-keyshortcuts="Right">
-                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
-                    </a>
             </nav>
 
         </div>
