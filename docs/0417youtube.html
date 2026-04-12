@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Fórmulas matemáticas - Tutorial de mdBook</title>
+        <title>Youtube - Tutorial de mdBook</title>
 
 
         <!-- Custom HTML head -->
@@ -180,41 +180,50 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="fórmulas-matemáticas"><a class="header" href="#fórmulas-matemáticas">Fórmulas matemáticas</a></h1>
-<p>Supongamos que estamos creando un libro que ha de mostrar fórmulas matemáticas:</p>
-<p>\[ \mu = \frac{1}{N} \sum_{i=0} x_i \]</p>
-<p>Estas ecuaciones se introducen en forma de párrafo separado,
-comenzando por una secuencia <code>\\[</code> y terminando con <code>\\]</code>:</p>
-<pre><code>\\[ \mu = \frac{1}{N} \sum_{i=0} x_i \\]
+                        <h1 id="youtube"><a class="header" href="#youtube">Youtube</a></h1>
+<p>A diferencia de lo que sucede con las imágenes, la sintaxis markdown no
+permite incluir vídeos de Youtube. Entre las extensiones de terceros, hay
+una llamada <a href="https://github.com/MR-Addict/mdbook-embedify">Embedify</a> que
+podemos instalar y usar para este propósito.</p>
+<p>Alternativamente, veamos como hacerlo mediante HTML.</p>
+<p>Supongamos, por ejemplo, que queremos insertar un video
+sobre un tema cualquiera,  por ejemplo
+la siguiente charla de <em>Richard Stallman</em>, lider del movimiento por el
+software libre:</p>
+<iframe src="https://www.youtube.com/embed/eewFTbLWfEE" width="600" height="400">
+</iframe>
+<p>Todos los vídeos de Youtube tienen una dirección que incluye una referencia
+al final de la URL:</p>
+<pre><code>https://www.youtube.com/watch?v=eewFTbLWfEE&amp;t=3s
 </code></pre>
-<p>Véase que los símbolos matemáticos van precedidos por una barra invertida <code>\</code>.
-Esta sintaxis se corresponde con un software de creación de formulas
-llamado <a href="https://www.mathjax.org/">MathJax</a>. Tenemos que habilitar esta
-funcionalidad de mdBook en el archivo <code>book.toml</code>:</p>
-<pre><code class="language-toml">[output.html]
-mathjax-support = true
+<p>Tomamos esa URL y cambiamos <code>watch</code> por <code>embed/</code>. Obtenemos lo siguiente:</p>
+<pre><code>https://www.youtube.com/embed/eewFTbLWfEE
 </code></pre>
-<p>Podemos saber más acerca de esta sintaxis examinando la documentación de
-Mathjax. De todas formas, la sintaxis que usa mdBook no es del todo compatible.
-De hecho, no se puede usar <code>$$ ... $$</code> como delimitadores, y las
-marcas <code>\[ ... \]</code> necesitan una barra invertida adicional para funcionar.</p>
-<h2 id="ecuaciones-dentro-de-un-párrafo"><a class="header" href="#ecuaciones-dentro-de-un-párrafo">Ecuaciones dentro de un párrafo</a></h2>
-<p>Es posible escribir ecuaciones como fragmento de un párrafo.
-Se delimitan entre <code>\\(</code> y <code>\\)</code>.
-Por ejemplo, \( \int x dx = \frac{x^2}{2} + C \) es una ecuación insertada
-mediante:</p>
-<pre><code>Por ejemplo, \\( \int x dx = \frac{x^2}{2} + C \\) es una ecuación insertada ...
+<p>Y para insertarlo en nuestro documento, como haríamos con una imagen, usamos
+la etiqueta <code>&lt;iframe&gt;</code>:</p>
+<pre><code class="language-html">&lt;iframe 
+    src="https://www.youtube.com/embed/eewFTbLWfEE" width=600 height=400&gt;
+&lt;/iframe&gt;
 </code></pre>
+<p>Lo que hace esta etiqueta es mostrar otra página web dentro de la nuestra. Por
+ejemplo, para acceder a la wikipedia:</p>
+<pre><code class="language-html">&lt;iframe 
+    src="https://es.wikipedia.org" width=750 height=400&gt;
+&lt;/iframe&gt;
+</code></pre>
+<p>Muestra:</p>
+<iframe src="https://es.wikipedia.org" width="750" height="400">
+</iframe>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../docs/0502inclusiones.html" class="mobile-nav-chapters previous" title="Capítulo anterior" aria-label="Capítulo anterior" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../docs/0416iconos.html" class="mobile-nav-chapters previous" title="Capítulo anterior" aria-label="Capítulo anterior" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="../docs/0504tipografia.html" class="mobile-nav-chapters next" title="Capítulo siguiente" aria-label="Capítulo siguiente" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../docs/0501admoniciones.html" class="mobile-nav-chapters next" title="Capítulo siguiente" aria-label="Capítulo siguiente" aria-keyshortcuts="Right">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                             </a>
 
@@ -224,11 +233,11 @@ mediante:</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../docs/0502inclusiones.html" class="nav-chapters previous" title="Capítulo anterior" aria-label="Capítulo anterior" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../docs/0416iconos.html" class="nav-chapters previous" title="Capítulo anterior" aria-label="Capítulo anterior" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="../docs/0504tipografia.html" class="nav-chapters next" title="Capítulo siguiente" aria-label="Capítulo siguiente" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../docs/0501admoniciones.html" class="nav-chapters next" title="Capítulo siguiente" aria-label="Capítulo siguiente" aria-keyshortcuts="Right">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
                     </a>
             </nav>
