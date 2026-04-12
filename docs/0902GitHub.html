@@ -38,7 +38,7 @@
             const path_to_root = "../";
             const default_light_theme = "rust";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-9a04aea8.js";
+            window.path_to_searchindex_js = "../searchindex-f1eeaca6.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-799629c9.js"></script>
@@ -182,20 +182,20 @@
                     <main>
                         <h1 id="subir-archivos-a-internet"><a class="header" href="#subir-archivos-a-internet">Subir archivos a Internet</a></h1>
 <p>Ahora que tenemos una carpeta con todos los contenidos a subir a Internet,
-llega el paso final, utilizar algún web que admita páginas de tipo “estático”,
-es decir, archivos que se descargan y visualizan en nuestro navegador
-sin sufrir modificaciones.</p>
+llega el paso final, utilizar algún servidor web que admita páginas de
+tipo “estático”, es decir, archivos que se descargan y visualizan en nuestro
+navegador sin sufrir modificaciones.</p>
 <p>Yo utilizo <a href="https://github.com">GitHub</a> como repositorio, y hago uso de un servicio llamado
-<a href="https://pages.github.com">GitHub Pages</a>, que permite visualizar la documentación en forma de sitio web.</p>
+<a href="https://pages.github.com">GitHub Pages</a>, que permite publicar la documentación alojada en ese sitio web.</p>
 <p>Para subir los documentos utilizo <a href="https://github.com/apps/desktop">GitHub Desktop</a>, un programa que podemos
-descargar e instalar en nuestro ordenador, que sirve para interaccionar
-con <a href="https://github.com">GitHub</a> y cuyo uso requiere que previamente tengamos instalado <em>Git</em>
+descargar e instalar en nuestro ordenador, y que sirve para interaccionar
+con <a href="https://github.com">GitHub</a>. Requiere que previamente tengamos instalado <em>Git</em>
 en nuestro ordenador, como hemos visto en el capítulo anterior.</p>
 <blockquote>
 <p><strong>Nota</strong>
 <hr>
-Probablemente, lo más ortodoxo sería añadir al script de creación del libro
-media docena de comandos <code>git</code> que ejecuten la sincronización de ficheros
+Probablemente lo más ortodoxo sería añadir al script de creación del libro
+media docena de comandos <code>git</code>, que ejecuten la sincronización de ficheros
 entre <a href="https://github.com">GitHub</a> y nuestras carpetas,
 Pero me gusta separar la tarea en dos fases, conversión a HTML y publicación
 del libro. Y por otra parte, me gusta la comodidad de <a href="https://github.com/apps/desktop">GitHub Desktop</a>.</p>
@@ -236,7 +236,7 @@ veremos un menú de opciones. Algunas de ellas son:</p>
 </ul>
 <h2 id="creando-un-repositorio"><a class="header" href="#creando-un-repositorio">Creando un repositorio</a></h2>
 <p>El primer paso para publicar un libro es crear un repositorio específico para
-ese propósito. Vamos a tener tantos como libros</p>
+ese propósito. Vamos a tener tantos repositorios como libros</p>
 <p>La creación de nuevos repositorios se puede hacer desde la página web de
 <a href="https://github.com">GitHub</a>, o desde <a href="https://github.com/apps/desktop">GitHub Desktop</a>. En el primer caso,
 tras iniciar sesión desplegamos el menú de opciones en la esquina superior
@@ -275,6 +275,8 @@ explicativo del repositorio.</p>
 <p><em>Settings</em> permite configurar el repositorio (¡incluida su eliminación!).</p>
 </li>
 </ul>
+<p>De todas formas, todo lo dicho es puramente ilustrativo. La creación de
+repositorios la haremos desde <a href="https://github.com/apps/desktop">GitHub Desktop</a>.</p>
 <h2 id="ramas"><a class="header" href="#ramas">Ramas</a></h2>
 <p><a href="https://github.com">GitHub</a>  es un portal colaborativo donde un equipo de personas pueden trabajar
 en el mismo proyecto. Es posible mantener varias versiones de un repositorio,
@@ -282,7 +284,7 @@ llamadas “ramas”. Al visualizar la lista de archivos, podemos seleccionar
 la rama (branch) deseada. Por ahora, nos arreglaremos con la rama “main”.</p>
 <h2 id="eliminar-repositorio"><a class="header" href="#eliminar-repositorio">Eliminar repositorio</a></h2>
 <p>En <a href="https://github.com">GitHub</a> no hay papeleras de reciclaje. La eliminación de un repositorio se
-hace entrando a ver el conteido del mismo y pulsando en el icono <em>Settings</em>.
+hace entrando a ver el contenido del mismo y pulsando en el icono <em>Settings</em>.
 En la página de configuración, acudir al apartado <em>Danger Zone</em>.</p>
 <h2 id="subida-de-archivos"><a class="header" href="#subida-de-archivos">Subida de archivos</a></h2>
 <p>Tras instalar <a href="https://github.com/apps/desktop">GitHub Desktop</a>, lo ejecutamos por primera vez y vemos
@@ -299,19 +301,20 @@ que <a href="https://github.com/apps/desktop">GitHub Desktop</a> acceda a nuestr
 un resumen de nuestros repositorios. Pulsamos en <em>Add repository from local drive</em>:</p>
 <p><img src="../img/0901GitHubDesktop003.png" alt=""></p>
 <p>En lo sucesivo, podemos hacer todo esto desde el menú <em>File &gt; Add local repository</em></p>
-<p>Tras esto, <a href="https://github.com/apps/desktop">Github Desktop</a> tiene a nuestra carpeta con el libro incluida
-su lista de repositorios locales.
-Vemos un resumen del repositorio y sus archivos. En la parte superior izquierda
+<p>Tras completar este paso, <a href="https://github.com/apps/desktop">Github Desktop</a> ha incluido en su lista de repositorios
+locales a nuestra carpeta con el libro final. Pero todavía no hemos creado nada en
+el servidor web.</p>
+<p>Vemos un resumen del repositorio y sus archivos. En la parte superior izquierda
 de la ventana tenemos una
 lista desplegable para seleccionar otros repositorios o crear uno nuevo:</p>
 <p><img src="../img/0901GitHubDesktop004.png" alt=""></p>
 <p>Para hacer la primera subida de archivos, tenemos que cumplimentar la casilla
-<em>Summary</em> con alguna frase, “Primera versión”, “actualización”, o lo que sea.
-Pulsamos en <em>Commit</em> (tomar nota de los cambios) y seguidamente en <em>Publish</em>
-(publicar).</p>
-<p>Cuando ejecutamos <em>Publish</em> por primera vez para un proyecto, se crea un nuevo
-repositorio en nuestra cuenta de <a href="https://github.com">GitHub</a>.</p>
-<p>En la ventana de diálogo de creación del repositorio se nos pregunta:</p>
+<em>Summary</em> con alguna frase, “primera versión”, “actualización”, o lo que sea.
+Pulsamos en <em>Commit</em> (tomar nota de los cambios) y seguidamente en <em>Push</em>
+(<em>publish</em>, publicar).</p>
+<p>Al ejecutar <em>Publish</em> por primera vez para un proyecto concreto, se intenta
+crear el repositorio en nuestra cuenta de <a href="https://github.com">GitHub</a>.
+En la ventana de diálogo de creación del repositorio se nos pregunta:</p>
 <ul>
 <li>Seleccionar Github.com o Enterprise. Escogemos el primero.</li>
 <li>Introducimos el nombre del repositorio a crear. Obtendremos un error
@@ -324,21 +327,25 @@ si ya existe un repositorio con ese nombre.</li>
 ¡Importante! Nunca debemos modificar los archivos directamente en el repositorio
 remoto. Hacerlo en el entorno local y subir los cambios, para un mejor control.</p>
 <p>Cada vez que abrimos <a href="https://github.com/apps/desktop">GitHub Desktop</a> y seleccionar un proyecto, veremos un
-resumen de los archivos que han sufrido modificaciones en nuestro entorno local.</p>
+resumen de los archivos que han sufrido modificaciones en nuestro entorno local.
+¡Ojo! Aunque hayamos modificado los archivos markdown, lo que aquí se examina
+es la carpeta con los ficheros HTML finales. No veremos ningún cambio hasta
+que no ejecutemos el script de conversión.</p>
 <p><img src="../img/0901GitHubDesktop005.png" alt=""></p>
 <p>Para actualizar el repositorio remoto, hacer lo siguiente:</p>
 <ul>
 <li>
 <p>pulsar en el botón <em>Fetch origin</em> para actualizar la sincronización
-de cambios</p>
+de cambios entre los entornos local y remoto.</p>
 </li>
 <li>
 <p>si se detectan cambios, rellenar la casilla “Summary” con el texto de
 la operación a realizar. Por ejemplo, “actualización”.
-Los archivos modificados en el repositorio remoto se mostrarán con ese texto.</p>
+En la lista de archivos en el repositorio remoto, los modificados
+se mostrarán con ese texto.</p>
 </li>
 <li>
-<p>pulsar en el botón <em>Commit</em> y seguidamente en *<em>Push origin</em></p>
+<p>pulsar en el botón <em>Commit</em> y seguidamente en <em>Push origin</em></p>
 </li>
 </ul>
 <h2 id="configurar-como-github-pages"><a class="header" href="#configurar-como-github-pages">Configurar como GitHub Pages</a></h2>
@@ -358,15 +365,18 @@ que tenemos: <code>main</code></li>
 <blockquote>
 <p>“Your site is ready to be published at “https://usuario.github.io/repositorio/”.</p>
 </blockquote>
-<p>Pasado un breve lapso de tiempo, si refrescamos la página, veremos el mensaje:</p>
+<p>Pasado un tiempo, si refrescamos la página, veremos el mensaje:</p>
 <blockquote>
 <p>“Your site is live at “https://usuario.github.io/repositorio/”</p>
 </blockquote>
+<p>A la derecha de ese mensaje tenemos un botón
+<kbd>Unpublish site</kbd> para retirar la publicación sin eliminar
+el repositorio.</p>
 <p>Gracias a los servicios de <em>GitHub Pages</em>, nuestra documentación será accesible
 mediante la URL:</p>
 <pre><code>https://usuario.github.io/nombreproyecto/
 </code></pre>
-<p>sustituyendo “<em>usuario</em>” por nuestro nombre de usuario y “<em>nomproyecto</em>” por el
+<p>sustituyendo “<em>usuario</em>” por nuestro nombre de usuario y “<em>nombreproyecto</em>” por el
 nombre del repositorio.</p>
 <h2 id="nombre-de-dominio-personalizado"><a class="header" href="#nombre-de-dominio-personalizado">Nombre de dominio personalizado</a></h2>
 <p>Si, en lugar de <code>usuario.github.io</code> queremos usar un nombre personal cuya
@@ -380,9 +390,10 @@ mediante la URL:</p>
 <p>Podemos crear una página principal accesible bajo el nombre:</p>
 <pre><code>https://usuario.github.io/
 </code></pre>
-<p>Para ello, debemos crear un repositorio llamado <code>usuario.github.io</code><br>(incluyendo los puntos como parte del nombre y cambiando <em>usuario</em> por
+<p>Para ello, debemos crear un repositorio llamado <code>usuario.github.io</code>
+, incluyendo los puntos como parte del nombre y cambiando <em>usuario</em> por
 nuestro nombre).</p>
-<p>Por ejemplo, en mi caso:</p>
+<p>Por ejemplo, en el caso de este cuaderno:</p>
 <ul>
 <li>
 <p>Página de proyecto:</p>
