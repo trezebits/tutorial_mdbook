@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Conversión tipográfica - Tutorial de mdBook</title>
+        <title>Indice de libros - Tutorial de mdBook</title>
 
 
         <!-- Custom HTML head -->
@@ -180,42 +180,122 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="conversión-tipográfica"><a class="header" href="#conversión-tipográfica">Conversión tipográfica</a></h1>
-<p>Algunas secuencias de caracteres se convertirán automáticamente en
-otros más elegantes. Por ejemplo,</p>
+                        <h1 id="crear-un-índice-de-libros"><a class="header" href="#crear-un-índice-de-libros">Crear un índice de libros</a></h1>
+<p>Como ya hemos visto, salvo que establezcamos otra cosa, todos nuestros libros
+son accesibles mediante una URL que es algo así como:</p>
+<pre><code>https://usuario.github.io/nombrerepositorio/
+</code></pre>
+<p>Pero nos gustaría crear una página especial que sirva de presentación, con
+una lista de todos nuestros libros. Será accesible bajo el nombre:</p>
+<pre><code>https://usuario.github.io/
+</code></pre>
+<p>Es decir, usamos el mismo nombre de dominio que asignamos a nuestros libros, pero
+sin especificar el nombre de repositorio. Esto se logra creando un repositorio
+especial cuyo nombre es <code>usuario.github.io</code>,
+incluyendo los puntos como parte del nombre y cambiando <em>usuario</em> por
+nuestro nombre.</p>
+<p>Por ejemplo, en el caso de este cuaderno:</p>
 <ul>
 <li>
-<p>Tres puntos consecutivos <code>...</code> se convertirán en un carácter <code>…</code></p>
+<p>Página de proyecto:</p>
+<ul>
+<li>URL: <a href="https://trezebits.github.io/tutorial_mdBook/">https://trezebits.github.io/tutorial_mdBook/</a></li>
+<li>Repositorio: <a href="https://github.com/trezebits/tutorial_mdBook/">https://github.com/trezebits/tutorial_mdBook/</a></li>
+</ul>
 </li>
 <li>
-<p>Las comillas <code>"  "</code> se convertirán en unas tipográficas de apertura
-y cierre, <code>“  ”</code></p>
-</li>
-<li>
-<p>Los apóstrofos <code>'  '</code> se convertirán en unos tipográficos de apertura
-y cierre, <code>‘  ’</code></p>
-</li>
-<li>
-<p>Tres guiones consecutivos <code>---</code> se convertirán en un guión largo.</p>
+<p>Página principal, con índice de cuadernos:</p>
+<ul>
+<li>URL: <a href="https://trezebits.github.io/">https://trezebits.github.io/</a></li>
+<li>Repositorio: <a href="https://github.com/trezebits/trezebits.github.io/">https://github.com/trezebits/trezebits.github.io/</a></li>
+</ul>
 </li>
 </ul>
-<p>Esta característica está activada por defecto. Si nos resulta molesta,
-en el archivo de configuración <code>book.toml</code> podemos desactivarla:</p>
-<pre><code class="language-toml">[output.html]
-smart-punctuation = false
+<h2 id="jeckyll"><a class="header" href="#jeckyll">Jeckyll</a></h2>
+<p>mdBook es un escelente generador de páginas web, pero no es el único. Si subimos
+archivos markdown directamente, GitHub hace uso internamente de un conversor
+llamado <a href="https://jekyllrb.com">Jeckyll</a>, más potente que mdBook, pero también
+más complejo.</p>
+<p>Para un proyecto de página única, sin grandes alardes, vamos a hacer uso de
+Jeckyll.</p>
+<h2 id="página-de-índice"><a class="header" href="#página-de-índice">Página de índice</a></h2>
+<p>El primer paso es crear una carpeta de proyecto en nuestro entorno local,
+por ejemplo, <code>indice/</code>, como haríamos con cualquier libro. Tratándose de
+un proyecto tan simple, no vamos a tener subcarpetas.</p>
+<p>Seguidamente creamos en esa carpeta un archivo <code>.gitignore</code></p>
+<p>Tercer paso. Ejecutamos los comandos…</p>
+<pre><code>$ cd /Users/usuario/Documentos/Proyectos/indice
+$ git init
 </code></pre>
+<p>Cuarto paso. Creamos en esa carpeta un archivo de texto <code>README.md</code>
+con una presentación de nuestro portal:</p>
+<pre><code># Mi portal de documentación
+
+Una colección más de libros accesible en &lt;https://usuario.github.io&gt;
+</code></pre>
+<p><strong>Nota</strong>: cambiar “usuario” por nuestro nombre en GitHub</p>
+<p>Quinto paso: creamos un archivo de configuración llamado <code>_config.yml</code>
+(nótese el subrayado como prefijo).
+En lugar del formato TOML que usamos con mdBook, el conversor de Github
+utiliza un formato llamado <a href="https://yaml.org">YML</a>.
+El contenido del fichero puede ser algo así como:</p>
+<pre><code class="language-yml">title: Mi sitio de libros
+theme: jekyll-theme-cayman
+</code></pre>
+<p>El tema representa el esquema de colores a aplicar. Podemos saber más sobre
+los temas de GitHub en
+<a href="https://docs.github.com/es/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll">esta página</a></p>
+<p>El último paso es redactar la página principal a mostrar. La llamaremos
+<code>index.md</code>, y GitHub la convertirá en <code>index.html</code>:</p>
+<pre><code class="language-md"># Mi portal de documentación
+
+Una breve presentación.
+
+Indice de libros:
+
+-   [Tutorial mdBook](&lt;https://usuario.github.io/tutorial_mdBook/&gt;)
+-   [Otro libro](&lt;https://usuario.github.io/otro_libro/&gt;)
+</code></pre>
+<p>Ya está. En la carpeta tenemos:</p>
+<ul>
+<li>
+<p>un archivo <code>.gitignore</code></p>
+</li>
+<li>
+<p>un archivo README.md que servirá de presentación a quienes visiten GitHub</p>
+</li>
+<li>
+<p>nuestra futura página web en formato markdown, <code>index.md</code></p>
+</li>
+<li>
+<p>el archivo de configuración <code>config.yml</code></p>
+</li>
+<li>
+<p>una carpeta <code>.git</code> con el control de cambios</p>
+</li>
+<li>
+<p>podemos añadir alguna imagen y mostrarla añadiendo en el archivo <code>index.md</code>:</p>
+<pre><code>![](imagen.jpeg)
+</code></pre>
+</li>
+</ul>
+<p>Con todo esto, abrimos GitHub Pages, pulsamos en el menú
+<em>File &gt; Add local repository</em>, seleccionamos la carpeta, y subimos su contenido
+creando un nuevo repositorio <code>usuario.github.io</code> (cambiando <em>usuario</em> por nuestro
+nombre). Seguidamente, entramos en la página web de GitHub, comprobamos que se
+han subido los contenidos, pulsamos en el icono <kbd>settings</kbd> y
+lo publicamos en GitHub Pages.</p>
+<p>Por supuesto, podemos obtener una página de presentación más elaborada explorando
+las capacidades de Jeckyll, o bien, creando un libro mdBook de una sola página.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../docs/0503mathjax.html" class="mobile-nav-chapters previous" title="Capítulo anterior" aria-label="Capítulo anterior" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../docs/0903repositorio.html" class="mobile-nav-chapters previous" title="Capítulo anterior" aria-label="Capítulo anterior" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="../docs/0901script.html" class="mobile-nav-chapters next" title="Capítulo siguiente" aria-label="Capítulo siguiente" aria-keyshortcuts="Right">
-                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
-                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -223,13 +303,10 @@ smart-punctuation = false
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../docs/0503mathjax.html" class="nav-chapters previous" title="Capítulo anterior" aria-label="Capítulo anterior" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../docs/0903repositorio.html" class="nav-chapters previous" title="Capítulo anterior" aria-label="Capítulo anterior" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="../docs/0901script.html" class="nav-chapters next" title="Capítulo siguiente" aria-label="Capítulo siguiente" aria-keyshortcuts="Right">
-                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
-                    </a>
             </nav>
 
         </div>
