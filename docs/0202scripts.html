@@ -28,7 +28,7 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="../ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="../theme/estilos-f0273b7f.css">
+        <link rel="stylesheet" href="../theme/estilos-4a7b815c.css">
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -38,7 +38,7 @@
             const path_to_root = "../";
             const default_light_theme = "rust";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "../searchindex-2c268e23.js";
+            window.path_to_searchindex_js = "../searchindex-cfa0187d.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="../toc-4d703600.js"></script>
@@ -186,6 +186,13 @@ que, para realizar una tarea de forma repetitiva, creemos una lista de comandos
 y la pongamos en un archivo
 sobre el que haremos doble clic con el ratón para ejecutarlo. A este tipo
 de archivos de texto con comandos se les llama <em>scripts</em>.</p>
+<blockquote>
+<p><strong>Nota</strong>:
+<hr>
+No confundir los scripts de comandos del sistema operativo con los
+archivos <code>.js</code> que contienen scripts a ejecutar por la página web,
+en lenguaje <em>JavaScript</em>.</p>
+</blockquote>
 <h2 id="nuestro-primer-script"><a class="header" href="#nuestro-primer-script">Nuestro primer script</a></h2>
 <p>Vamos a crear una carpeta para nuestro primer proyecto. Seguidamente creamos
 un archivo llamado <code>verificar_mdbook.sh</code>.</p>
@@ -233,6 +240,16 @@ En Windows el comando sería:</p>
 </code></pre>
 </li>
 </ul>
+<blockquote>
+<p><strong>¡Cuidado!</strong>
+<hr>
+Al hacer doble clic sobre un script, si lo tenemos bien configurado, se
+abrirá una ventana y veremos como se ejecuta. Pero en algunos sistemas
+operativos, al finalizar la tarea se cierra la ventana automáticamente,
+sin permitirnos ver el resultado. Los comandos <code>read</code> (Mac/Linux) o
+<code>pause</code> (Windows) evitan esto, y dejan la ventana abierta, a la espera de
+que el usuario pulse <kbd>enter</kbd> para cerrarla.</p>
+</blockquote>
 <h2 id="identificar-script-como-tal"><a class="header" href="#identificar-script-como-tal">Identificar script como tal</a></h2>
 <p>En Windows, los scripts se identifican mediante el sufijo <code>.bat</code></p>
 <p>En Linux, la primera línea de texto ha der ser:</p>
